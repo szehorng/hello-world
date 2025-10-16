@@ -1,47 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Simple To-Do List</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 5px; }
-    </style>
-</head>
-<body>
+import java.util.Scanner;
 
-    <h2>📝 My To-Do List</h2>
-    <input type="text" id="taskInput" placeholder="Enter a new task">
-    <button onclick="addTask()">Add Task</button>
+public class Calculator {
 
-    <ul id="taskList"></ul>
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double num1, num2, result;
+        String operator;
 
-    <script>
-        function addTask() {
-            const taskInput = document.getElementById("taskInput");
-            const taskText = taskInput.value.trim();
-            if (taskText === "") {
-                alert("Please enter a task.");
-                return;
-            }
+        System.out.println("Simple Java Calculator");
+        System.out.print("Enter first number: ");
+        num1 = input.nextDouble();
 
-            const li = document.createElement("li");
-            li.textContent = taskText;
+        System.out.print("Enter an operator (+, -, *, /): ");
+        operator = input.next();
 
-            // Add remove button
-            const removeBtn = document.createElement("button");
-            removeBtn.textContent = "❌";
-            removeBtn.style.marginLeft = "10px";
-            removeBtn.onclick = function () {
-                li.remove();
-            };
+        System.out.print("Enter second number: ");
+        num2 = input.nextDouble();
 
-            li.appendChild(removeBtn);
-            document.getElementById("taskList").appendChild(li);
-
-            taskInput.value = ""; // Clear input
+        switch (operator) {
+            case "+":
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case "-":
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case "*":
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case "/":
+                if (num2 == 0) {
+                    System.out.println("Error: Cannot divide by zero.");
+                } else {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                }
+                break;
+            default:
+                System.out.println("Invalid operator.");
         }
-    </script>
 
-</body>
-</html>
+        input.close();
+    }
+}
