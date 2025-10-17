@@ -1,12 +1,1 @@
-# Print Fibonacci numbers up to a given limit
-
-def fibonacci_up_to(n):
-    a, b = 0, 1
-    while a <= n:
-        print(a, end=' ')
-        a, b = b, a + b
-
-# Example usage
-limit = 100
-print(f"Fibonacci numbers up to {limit}:")
-fibonacci_up_to(limit)
+abc
