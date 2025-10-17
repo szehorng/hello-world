@@ -1,13 +1,26 @@
- # Print Fibonacci numbers up to a given limit
+import random
 
-def fibonacci_up_to(n):
-    a, b = 0, 1
-    while a <= n:
-        print(a, end=' ')
-        a, b = b, a + b
+def guess_the_number():
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
 
-# Example usage
-limit = 100
-print(f"Fibonacci numbers up to {limit}:")
-fibonacci_up_to(limit)
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
 
+    while True:
+        try:
+            guess = int(input("Take a guess: "))
+            attempts += 1
+
+            if guess < number_to_guess:
+                print("Too low. Try again.")
+            elif guess > number_to_guess:
+                print("Too high. Try again.")
+            else:
+                print(f"Congratulations! You guessed it in {attempts} tries.")
+                break
+        except ValueError:
+            print("Please enter a valid number.")
+
+# Run the game
+guess_the_number()
