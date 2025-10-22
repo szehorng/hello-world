@@ -1,18 +1,26 @@
-public class Main {
+import random
 
-    // Method to add two numbers
-    public static int add(int a, int b) {
-        return a + b;
-    }
+def guess_the_number():
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
 
-    // Main method
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
 
-        int num1 = 5;
-        int num2 = 7;
-        int sum = add(num1, num2);
+    while True:
+        try:
+            guess = int(input("Take a guess: "))
+            attempts += 1
 
-        System.out.println("Sum of " + num1 + " and " + num2 + " is: " + sum);
-    }
-}
+            if guess < number_to_guess:
+                print("Too low. Try again.")
+            elif guess > number_to_guess:
+                print("Too high. Try again.")
+            else:
+                print(f"Congratulations! You guessed it in {attempts} tries.")
+                break
+        except ValueError:
+            print("Please enter a valid number.")
+
+# Run the game
+guess_the_number()
